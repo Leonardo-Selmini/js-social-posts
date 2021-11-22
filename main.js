@@ -58,6 +58,9 @@ const posts = [
 
 for (let i = 0; i < posts.length; i++) {
     let container = document.getElementById('container');
+
+    posts[i].created = formatDate(posts[i].created);
+
     container.innerHTML += `
         <div class="post">
             <div class="post__header">
@@ -91,3 +94,14 @@ for (let i = 0; i < posts.length; i++) {
             </div>
         </div>`;
 };
+
+
+
+// questa funzione serve a formattare una data dal formato yyyy-mm-dd al formato italiano dd/mm/yyyy. string deve essere = a una stringa yyyy-mm-dd
+function formatDate(string) {
+    let day = string[8] + string[9];
+    let month = string[5] + string[6];
+    let year = string[0] + string[1] + string[2] + string[3];
+    let newDate = day + '/' + month + '/' + year;
+    return newDate;
+}

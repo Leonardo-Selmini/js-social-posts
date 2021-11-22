@@ -101,6 +101,22 @@ for (let i = 0; i < posts.length; i++) {
         </div>`;
 };
 
+for (let i = 0; i < posts.length; i++) {
+    const like = document.getElementsByTagName('a');
+
+    like[i].addEventListener('click', function(event) {
+        event.preventDefault();
+
+        like[i].classList.toggle('like-button--liked');
+
+        const check = like[i].classList;
+        const counter = document.getElementsByClassName('js-likes-counter');
+        
+        if (check.contains('like-button--liked') == true) {
+            counter[i].innerHTML = ++posts[i].likes;
+        } else counter[i].innerHTML = --posts[i].likes;
+    })
+}
 
 
 
